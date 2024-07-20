@@ -54,15 +54,26 @@ func add(vec: Cube) -> Cube:
 func subtract(vec: Cube) -> Cube:
 	return Cube.new(q - vec.q, r - vec.r, s - vec.s)
 
+func is_equal(vec: Cube) -> bool:
+	return q == vec.q and r == vec.r and s == vec.s
+
+func is_zero() -> bool:
+	return q == 0 and r == 0 and s == 0
+
 func distance(b: Cube) -> int:
-	var vec = self.subtract(b)
-	return (abs(vec.q) + abs(vec.r) + abs(vec.s)) / 2
+	return self.subtract(b).length()
+	
+func length() -> int:
+	return (abs(q) + abs(r) + abs(s)) / 2
 
 func neighbor(dir) -> Cube:
 	return add(Cube.direction(dir))
 	
 func diagonal_neighbor(dir) -> Cube:
 	return add(Cube.diagonal_direction(dir))
+
+func _to_string() -> String:
+	return "Cube(q: %d, r: %d, s: %d)" % [q, r, s]
 
 static func cube_linedraw(a: Cube, b: Cube) -> Array:
 	return FloatCube.cube_linedraw(FloatCube.from_cube(a), FloatCube.from_cube(b))

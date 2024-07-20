@@ -29,13 +29,30 @@ func add(vec: FloatHex) -> FloatHex:
 func subtract(vec: FloatHex) -> FloatHex:
 	return FloatHex.new(q - vec.q, r - vec.r)
 
+func is_equal_approx(vec: FloatHex) -> bool:
+	return is_equal_approx(q, vec.q) and is_equal_approx(r, vec.r)
+
+func is_zero_approx() -> bool:
+	return is_zero_approx(q) and is_zero_approx(r)
+	
 func distance(b: FloatHex) -> float:
-	var vec = self.subtract(b)
-	return (abs(vec.q) + abs(vec.q + vec.r) + abs(vec.r)) / 2
+	return self.subtract(b).length()
+
+func length() -> float:
+	return (abs(q) + abs(q + r) + abs(r)) / 2
 
 func hex_round() -> Hex:
 	return to_float_cube().cube_round().to_hex()
-	
+
+func normalize() -> FloatHex:
+	var length = length()
+	if length == 0:
+		return FloatHex.new(0, 0)
+	return FloatHex.new(q / length, r / length)
+
+func _to_string() -> String:
+	return "FloatHex(q: %.2f, r: %.2f)" % [q, r]
+
 static func hex_lerp(a: FloatHex, b: FloatHex, t: float) -> FloatHex:
 	return FloatHex.new(
 		lerpf(a.q, b.q, t),

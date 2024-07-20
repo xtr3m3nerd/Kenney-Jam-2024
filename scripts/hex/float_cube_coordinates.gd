@@ -33,9 +33,17 @@ func add(vec: FloatCube) -> FloatCube:
 func subtract(vec: FloatCube) -> FloatCube:
 	return FloatCube.new(q - vec.q, r - vec.r, s - vec.s)
 
+func is_equal_approx(vec: FloatCube) -> bool:
+	return is_equal_approx(q, vec.q) and is_equal_approx(r, vec.r) and is_equal_approx(s, vec.s)
+
+func is_zero_approx() -> bool:
+	return is_zero_approx(q) and is_zero_approx(r) and is_zero_approx(s)
+
 func distance(b: FloatCube) -> float:
-	var vec = self.subtract(b)
-	return (abs(vec.q) + abs(vec.r) + abs(vec.s)) / 2
+	return self.subtract(b).length()
+
+func length() -> float:
+	return (abs(q) + abs(r) + abs(s)) / 2
 
 func cube_round() -> Cube:
 	var pq = roundf(q)
@@ -54,7 +62,16 @@ func cube_round() -> Cube:
 		ps = -pq-pr
 	
 	return Cube.new(pq, pr, ps)
-	
+
+func normalize() -> FloatCube:
+	var length = length()
+	if length == 0:
+		return FloatCube.new(0, 0, 0)
+	return FloatCube.new(q / length, r / length, s / length)
+
+func _to_string() -> String:
+	return "Cube(q: %.2f, r: %.2f, s: %.2f)" % [q, r, s]
+
 static func cube_lerp(a: FloatCube, b: FloatCube, t: float) -> FloatCube:
 	return FloatCube.new(
 		lerpf(a.q, b.q, t),

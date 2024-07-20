@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkl13optg7esi"]
+
+[ext_resource type="Script" path="res://prefabs/hex_map_interaction.gd" id="1_wugmw"]
+[ext_resource type="PackedScene" uid="uid://bcc73slrkt4e" path="res://prefabs/tiles/placeholder_tile.tscn" id="2_t886p"]
+
+[node name="HexMapInteraction" type="Node3D"]
+script = ExtResource("1_wugmw")
+
+[node name="Placeholder" parent="." instance=ExtResource("2_t886p")]

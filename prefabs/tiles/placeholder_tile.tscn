@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcc73slrkt4e"]
+[gd_scene load_steps=5 format=3 uid="uid://bcc73slrkt4e"]
 
 [ext_resource type="PackedScene" uid="uid://crxarkpm2nsws" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/dirt.glb" id="1_vlrbd"]
+[ext_resource type="Script" path="res://prefabs/tiles/placeholder_tile.gd" id="2_ddp7c"]
+[ext_resource type="PackedScene" uid="uid://cxqhicutcj8bp" path="res://prefabs/cell_number.tscn" id="3_ds8er"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8xct"]
+render_priority = 1
 transparency = 1
 no_depth_test = true
 albedo_color = Color(1, 0, 0, 0.635294)
 
 [node name="Placeholder" instance=ExtResource("1_vlrbd")]
+script = ExtResource("2_ddp7c")
+cell_number = ExtResource("3_ds8er")
 
 [node name="dirt" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_c8xct")

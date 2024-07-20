@@ -47,15 +47,26 @@ func add(vec: Hex) -> Hex:
 func subtract(vec: Hex) -> Hex:
 	return Hex.new(q - vec.q, r - vec.r)
 
+func is_equal(vec: Hex) -> bool:
+	return q == vec.q and r == vec.r
+
+func is_zero() -> bool:
+	return q == 0 and r == 0
+
 func distance(b: Hex) -> int:
-	var vec = self.subtract(b)
-	return (abs(vec.q) + abs(vec.q + vec.r) + abs(vec.r)) / 2
+	return self.subtract(b).length()
+
+func length() -> int:
+	return (abs(q) + abs(q + r) + abs(r)) / 2
 	
 func neighbor(dir) -> Hex:
 	return add(Hex.direction(dir))
 	
 func diagonal_neighbor(dir) -> Hex:
 	return add(Hex.diagonal_direction(dir))
+
+func _to_string() -> String:
+	return "Hex(q: %d, r: %d)" % [q, r]
 
 static func get_range(center: Hex, N: int) -> Array:
 	var results = []

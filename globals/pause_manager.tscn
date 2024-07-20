@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b5jcuir0ujh3c" path="res://scenes/menu/volume_controls.tscn" id="2_rd5ys"]
 
 [node name="PauseManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_r46o6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

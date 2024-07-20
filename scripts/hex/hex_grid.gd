@@ -63,16 +63,28 @@ func hex_to_point(hex: Hex) -> Vector2:
 			assert(false, "Orientation not implimented")
 			return Vector2(0,0)
 
+func cube_to_point(cube: Cube) -> Vector2:
+	return hex_to_point(cube.to_hex())
+
 func point_to_hex(point: Vector2) -> Hex:
+	return point_to_float_hex(point).hex_round()
+
+func point_to_float_hex(point: Vector2) -> FloatHex:
 	match orientation:
 		Orientation.FLAT_TOP:
 			var q = 2.0/3 * point.x / size
 			var r = (-1.0/3 * point.x + SQRT_3/3 * point.y) / size
-			return FloatHex.new(q,r).hex_round()
+			return FloatHex.new(q,r)
 		Orientation.POINTY_TOP:
 			var q = (SQRT_3/3 * point.x - 1.0/3 * point.y) / size
 			var r = 2.0/3 * point.y / size
-			return FloatHex.new(q,r).hex_round()
+			return FloatHex.new(q,r)
 		_:
 			assert(false, "Orientation not implimented")
-			return Hex.new(0,0)
+			return FloatHex.new(0,0)
+			
+func point_to_cube(point: Vector2) -> Cube:
+	return point_to_hex(point).to_cube()
+
+func point_to_float_cube(point: Vector2) -> FloatCube:
+	return point_to_float_hex(point).to_float_cube()

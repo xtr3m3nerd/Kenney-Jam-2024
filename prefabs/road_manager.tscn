@@ -1,0 +1,23 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbu4eejpedfae"]
+
+[ext_resource type="Script" path="res://prefabs/road_manager.gd" id="1_jpqbq"]
+[ext_resource type="Resource" uid="uid://qynwv02oa5pv" path="res://resources/roads/road_corner.tres" id="2_jr213"]
+[ext_resource type="Resource" uid="uid://cjqwq0nn2v0o1" path="res://resources/roads/road_corner_sharp.tres" id="3_bpldy"]
+[ext_resource type="Resource" uid="uid://cplwavggftbg0" path="res://resources/roads/road_crossing.tres" id="4_b4rdq"]
+[ext_resource type="Resource" uid="uid://b4w4c7wwwjahq" path="res://resources/roads/road_end.tres" id="5_ly7qy"]
+[ext_resource type="Resource" uid="uid://ce4awfm6i6cwv" path="res://resources/roads/road_intersection_a.tres" id="6_13rts"]
+[ext_resource type="Resource" uid="uid://h40lxoxt8rvt" path="res://resources/roads/road_intersection_b.tres" id="7_0jopv"]
+[ext_resource type="Resource" uid="uid://b4kp4iitsix24" path="res://resources/roads/road_intersection_c.tres" id="8_oqgjf"]
+[ext_resource type="Resource" uid="uid://c6xbx1up3wdc5" path="res://resources/roads/road_intersection_d.tres" id="9_2a75u"]
+[ext_resource type="Resource" uid="uid://qwbx8daupo6s" path="res://resources/roads/road_intersection_e.tres" id="10_77l55"]
+[ext_resource type="Resource" uid="uid://duwwo64g8v426" path="res://resources/roads/road_intersection_f.tres" id="11_ekej3"]
+[ext_resource type="Resource" uid="uid://bcpsdesgra5wr" path="res://resources/roads/road_intersection_g.tres" id="12_vrvkd"]
+[ext_resource type="Resource" uid="uid://bpmgjo7cvc5mv" path="res://resources/roads/road_intersection_h.tres" id="13_h7u6r"]
+[ext_resource type="Resource" uid="uid://dga8mrc8itmda" path="res://resources/roads/road_square.tres" id="14_5rh85"]
+[ext_resource type="Resource" uid="uid://dj8ep6a38rb6e" path="res://resources/roads/road_square_end.tres" id="15_virim"]
+[ext_resource type="Resource" uid="uid://coc1whqgly10h" path="res://resources/roads/road_start.tres" id="16_h51x7"]
+[ext_resource type="Resource" uid="uid://c0bx5y8bfyxqw" path="res://resources/roads/road_straight.tres" id="17_r6a1a"]
+
+[node name="RoadManager" type="Node3D"]
+script = ExtResource("1_jpqbq")
+road_tiles = Array[Resource("res://scripts/resources/path_type.gd")]([ExtResource("2_jr213"), ExtResource("3_bpldy"), ExtResource("4_b4rdq"), ExtResource("5_ly7qy"), ExtResource("6_13rts"), ExtResource("7_0jopv"), ExtResource("8_oqgjf"), ExtResource("9_2a75u"), ExtResource("10_77l55"), ExtResource("11_ekej3"), ExtResource("12_vrvkd"), ExtResource("13_h7u6r"), ExtResource("14_5rh85"), ExtResource("15_virim"), ExtResource("16_h51x7"), ExtResource("17_r6a1a")])

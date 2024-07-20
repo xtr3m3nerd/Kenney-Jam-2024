@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PathType" load_steps=3 format=3 uid="uid://dj8ep6a38rb6e"]
+
+[ext_resource type="PackedScene" uid="uid://7c332nj62jpc" path="res://prefabs/tiles/path/path_square_end.tscn" id="1_abgy8"]
+[ext_resource type="Script" path="res://scripts/resources/path_type.gd" id="2_dfhx4"]
+
+[resource]
+script = ExtResource("2_dfhx4")
+prefab = ExtResource("1_abgy8")
+connections = 8
