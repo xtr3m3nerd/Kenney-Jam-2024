@@ -3,8 +3,8 @@ set -e
 cd "$(dirname "$0")"
 
 ITCH_USER="cranberryninja"
-ITCH_PAGE="dungeon-light"
-GAMENAME="dungeon_light"
+ITCH_PAGE="caravan-kingdom"
+GAMENAME="caravan_kingdom"
 
 declare -A html
 

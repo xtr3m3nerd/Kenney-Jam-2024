@@ -30,5 +30,3 @@ environment = SubResource("Environment_gwe7w")
 [node name="GameMap" parent="." instance=ExtResource("1_mdqum")]
 
 [node name="CameraRig" parent="." instance=ExtResource("2_j4io6")]
-
-[editable path="CameraRig"]

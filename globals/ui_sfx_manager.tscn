@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccoc63rvt5qwc"]
+
+[ext_resource type="Script" path="res://globals/ui_sfx_manager.gd" id="1_8n1ye"]
+[ext_resource type="Script" path="res://scripts/audio_stream_pool.gd" id="2_1d4lj"]
+
+[node name="UiSfxManager" type="Node"]
+script = ExtResource("1_8n1ye")
+
+[node name="ButtonNoises" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
+
+[node name="HoverNoises" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
+
+[node name="ButtonNoisePool" type="Node" parent="." node_paths=PackedStringArray("template_player")]
+script = ExtResource("2_1d4lj")
+template_player = NodePath("../ButtonNoises")
+
+[node name="HoverNoisePool" type="Node" parent="." node_paths=PackedStringArray("template_player")]
+script = ExtResource("2_1d4lj")
+template_player = NodePath("../HoverNoises")

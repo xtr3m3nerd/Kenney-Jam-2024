@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5jcuir0ujh3c"]
+
+[ext_resource type="Script" path="res://scenes/menu/volume_controls.gd" id="1_qjk71"]
+
+[node name="VolumeControls" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qjk71")
+
+[node name="MusicVolume" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MusicVolume"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Music: "
+
+[node name="MusicSlider" type="HSlider" parent="MusicVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxVolume" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SfxVolume"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Sfx: "
+
+[node name="SfxSlider" type="HSlider" parent="SfxVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
