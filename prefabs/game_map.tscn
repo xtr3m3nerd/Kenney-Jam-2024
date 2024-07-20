@@ -1,0 +1,40 @@
+[gd_scene load_steps=20 format=3 uid="uid://def78aiuwodq0"]
+
+[ext_resource type="Script" path="res://prefabs/game_map.gd" id="1_nlymr"]
+[ext_resource type="PackedScene" uid="uid://k0hhhx1ia73y" path="res://prefabs/tiles/terrain/stone_mountain.tscn" id="2_rrp3b"]
+[ext_resource type="PackedScene" uid="uid://cbb4315ju7io1" path="res://prefabs/tiles/terrain/dirt.tscn" id="3_2uo15"]
+[ext_resource type="PackedScene" uid="uid://bcc73slrkt4e" path="res://prefabs/tiles/placeholder_tile.tscn" id="4_cdkcf"]
+[ext_resource type="PackedScene" uid="uid://t08e2aflmkkv" path="res://prefabs/tiles/terrain/dirt_lumber.tscn" id="4_knpdf"]
+[ext_resource type="PackedScene" uid="uid://bt563u0uqot4c" path="res://prefabs/tiles/terrain/grass.tscn" id="5_f5owf"]
+[ext_resource type="PackedScene" uid="uid://bo21klemlxrcf" path="res://prefabs/tiles/terrain/grass_forest.tscn" id="6_syt2y"]
+[ext_resource type="PackedScene" uid="uid://cf3lqx60v12gl" path="res://prefabs/tiles/terrain/grass_hill.tscn" id="7_ab54r"]
+[ext_resource type="PackedScene" uid="uid://b0c16htgo171f" path="res://prefabs/tiles/terrain/sand.tscn" id="8_l01yk"]
+[ext_resource type="PackedScene" uid="uid://duos7ofduf2pb" path="res://prefabs/tiles/terrain/sand_desert.tscn" id="9_2sbo0"]
+[ext_resource type="PackedScene" uid="uid://dlpjvrarq772d" path="res://prefabs/tiles/terrain/sand_rocks.tscn" id="10_61m4x"]
+[ext_resource type="PackedScene" uid="uid://cmx5bv06guuwk" path="res://prefabs/tiles/terrain/stone.tscn" id="11_ovqr7"]
+[ext_resource type="PackedScene" uid="uid://d2kf8qcgt76ux" path="res://prefabs/tiles/terrain/stone_hill.tscn" id="12_1cedu"]
+[ext_resource type="PackedScene" uid="uid://6fph0w632lot" path="res://prefabs/tiles/terrain/stone_rocks.tscn" id="13_sa0g2"]
+[ext_resource type="PackedScene" uid="uid://gnedpgt3wwem" path="res://prefabs/tiles/terrain/water.tscn" id="14_1dt0u"]
+[ext_resource type="PackedScene" uid="uid://boils306x8ttn" path="res://prefabs/tiles/terrain/water_island.tscn" id="15_5uwp8"]
+[ext_resource type="PackedScene" uid="uid://cf43yfb0k5fyi" path="res://prefabs/tiles/terrain/water_rocks.tscn" id="16_4v7hm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgrca"]
+no_depth_test = true
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wyojx"]
+material = SubResource("StandardMaterial3D_lgrca")
+radius = 0.25
+height = 0.5
+
+[node name="GameMap" type="Node3D"]
+script = ExtResource("1_nlymr")
+base_tile = ExtResource("2_rrp3b")
+terrain_tiles = Array[PackedScene]([ExtResource("3_2uo15"), ExtResource("4_knpdf"), ExtResource("5_f5owf"), ExtResource("6_syt2y"), ExtResource("7_ab54r"), ExtResource("8_l01yk"), ExtResource("9_2sbo0"), ExtResource("10_61m4x"), ExtResource("11_ovqr7"), ExtResource("12_1cedu"), ExtResource("2_rrp3b"), ExtResource("13_sa0g2"), ExtResource("14_1dt0u"), ExtResource("15_5uwp8"), ExtResource("16_4v7hm")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_wyojx")
+
+[node name="Placeholder" parent="." instance=ExtResource("4_cdkcf")]
+visible = false

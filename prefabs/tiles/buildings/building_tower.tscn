@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://copm7u3lkgvqj"]
+
+[ext_resource type="PackedScene" uid="uid://wsiehx11i7xr" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-tower.glb" id="1_f8b5h"]
+
+[node name="BuildingTower" instance=ExtResource("1_f8b5h")]

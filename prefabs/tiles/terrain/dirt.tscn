@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbb4315ju7io1"]
+
+[ext_resource type="PackedScene" uid="uid://crxarkpm2nsws" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/dirt.glb" id="1_uiwj0"]
+
+[node name="Dirt" instance=ExtResource("1_uiwj0")]

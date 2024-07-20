@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://t3iu38ghl2ft"]
+
+[ext_resource type="PackedScene" uid="uid://bk3awxxao4nuj" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-port.glb" id="1_0ekoc"]
+
+[node name="BuildingPort" instance=ExtResource("1_0ekoc")]

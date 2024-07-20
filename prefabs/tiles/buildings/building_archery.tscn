@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://0614dr3vv622"]
+
+[ext_resource type="PackedScene" uid="uid://dufy2gq00mo3y" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-archery.glb" id="1_wbgj3"]
+
+[node name="BuildingArchery" instance=ExtResource("1_wbgj3")]

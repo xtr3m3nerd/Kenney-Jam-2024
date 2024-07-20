@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://vx3wp22t0pv3"]
+
+[ext_resource type="PackedScene" uid="uid://boggn6f53282b" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-farm.glb" id="1_na2qf"]
+
+[node name="BuildingFarm" instance=ExtResource("1_na2qf")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://6fph0w632lot"]
+
+[ext_resource type="PackedScene" uid="uid://dkb7jiw8r3ywk" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/stone-rocks.glb" id="1_u7lwl"]
+
+[node name="StoneRocks" instance=ExtResource("1_u7lwl")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dof8nmp83sdy8"]
+
+[ext_resource type="PackedScene" uid="uid://1dh6w58ltbfc" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/path-start.glb" id="1_6ra1x"]
+
+[node name="PathStart" instance=ExtResource("1_6ra1x")]

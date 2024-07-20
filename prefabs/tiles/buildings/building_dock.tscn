@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://jinn7lern4s4"]
+
+[ext_resource type="PackedScene" uid="uid://bqiwbl7b81bd2" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-dock.glb" id="1_b4k5l"]
+
+[node name="BuildingDock" instance=ExtResource("1_b4k5l")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://7c332nj62jpc"]
+
+[ext_resource type="PackedScene" uid="uid://rnxnkg8m5ubx" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/path-square-end.glb" id="1_vnbjk"]
+
+[node name="PathSquareEnd" instance=ExtResource("1_vnbjk")]

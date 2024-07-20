@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0c16htgo171f"]
+
+[ext_resource type="PackedScene" uid="uid://clr8jt4of13r1" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/sand.glb" id="1_f3in3"]
+
+[node name="Sand" instance=ExtResource("1_f3in3")]

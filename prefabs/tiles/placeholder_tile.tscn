@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcc73slrkt4e"]
+
+[ext_resource type="PackedScene" uid="uid://crxarkpm2nsws" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/dirt.glb" id="1_vlrbd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8xct"]
+transparency = 1
+no_depth_test = true
+albedo_color = Color(1, 0, 0, 0.635294)
+
+[node name="Placeholder" instance=ExtResource("1_vlrbd")]
+
+[node name="dirt" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_c8xct")

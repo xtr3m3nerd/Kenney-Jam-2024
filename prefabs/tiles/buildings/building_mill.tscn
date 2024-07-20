@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsq06rnmgp846"]
+
+[ext_resource type="PackedScene" uid="uid://bt42qtweaq04a" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-mill.glb" id="1_s4rw2"]
+
+[sub_resource type="Animation" id="Animation_s5ets"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("building-mill/rotate-x:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6cm01"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("building-mill/rotate-x:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfp4j"]
+_data = {
+"RESET": SubResource("Animation_6cm01"),
+"idle": SubResource("Animation_s5ets")
+}
+
+[node name="BuildingMill" instance=ExtResource("1_s4rw2")]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_hfp4j")
+}
+autoplay = "idle"

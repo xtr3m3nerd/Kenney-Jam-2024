@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpbrgdg4t7rrd"]
+
+[ext_resource type="PackedScene" uid="uid://ocd7iy3iwmwy" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-wall.glb" id="1_c0fio"]
+
+[node name="BuildingWall" instance=ExtResource("1_c0fio")]

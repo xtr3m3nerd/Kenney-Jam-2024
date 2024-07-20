@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://iioddgbs87yw"]
+
+[ext_resource type="PackedScene" uid="uid://uxkss7o4imku" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/path-corner-sharp.glb" id="1_qwpmw"]
+
+[node name="PathCornerSharp" instance=ExtResource("1_qwpmw")]

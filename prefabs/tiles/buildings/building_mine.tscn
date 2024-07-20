@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bttram4lh4mce"]
+
+[ext_resource type="PackedScene" uid="uid://cy2kaetfuxkfx" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-mine.glb" id="1_sd760"]
+
+[node name="BuildingMine" instance=ExtResource("1_sd760")]

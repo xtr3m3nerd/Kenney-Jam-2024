@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://camiyo4jsu8l1"]
+
+[ext_resource type="PackedScene" uid="uid://def78aiuwodq0" path="res://prefabs/game_map.tscn" id="1_mdqum"]
+[ext_resource type="PackedScene" uid="uid://25lllfo6dlij" path="res://prefabs/camera_rig.tscn" id="2_j4io6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sopav"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_vbst6"]
+sky_material = SubResource("ProceduralSkyMaterial_sopav")
+
+[sub_resource type="Environment" id="Environment_gwe7w"]
+background_mode = 1
+background_color = Color(0.393129, 0.253477, 0.332244, 1)
+sky = SubResource("Sky_vbst6")
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 1
+
+[node name="Game" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_color = Color(0.629675, 0.629675, 0.629675, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gwe7w")
+
+[node name="GameMap" parent="." instance=ExtResource("1_mdqum")]
+
+[node name="CameraRig" parent="." instance=ExtResource("2_j4io6")]
+
+[editable path="CameraRig"]

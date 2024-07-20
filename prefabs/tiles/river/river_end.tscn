@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfd3xtri67q4d"]
+
+[ext_resource type="PackedScene" uid="uid://bvicxdpdod7ox" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/river-end.glb" id="1_innvg"]
+
+[node name="RiverEnd" instance=ExtResource("1_innvg")]

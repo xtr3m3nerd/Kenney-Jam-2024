@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://drn44txh13ial"]
+
+[ext_resource type="PackedScene" uid="uid://bymqoaj8o370i" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-smelter.glb" id="1_la1dy"]
+
+[node name="BuildingSmelter" instance=ExtResource("1_la1dy")]

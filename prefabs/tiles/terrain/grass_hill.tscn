@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf3lqx60v12gl"]
+
+[ext_resource type="PackedScene" uid="uid://bd8hu8akfysfk" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/grass-hill.glb" id="1_5sqik"]
+
+[node name="GrassHill" instance=ExtResource("1_5sqik")]

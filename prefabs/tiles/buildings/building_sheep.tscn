@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpkvvqgikupdi"]
+
+[ext_resource type="PackedScene" uid="uid://c67et7li1l0i2" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/building-sheep.glb" id="1_f6ipq"]
+
+[node name="BuildingSheep" instance=ExtResource("1_f6ipq")]

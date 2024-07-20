@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2kf8qcgt76ux"]
+
+[ext_resource type="PackedScene" uid="uid://bk07hjvayff4g" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/stone-hill.glb" id="1_cspq6"]
+
+[node name="StoneHill" instance=ExtResource("1_cspq6")]

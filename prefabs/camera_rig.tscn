@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://25lllfo6dlij"]
+
+[ext_resource type="Script" path="res://prefabs/camera_rig.gd" id="1_ixrm5"]
+
+[node name="CameraRig" type="Marker3D"]
+script = ExtResource("1_ixrm5")
+
+[node name="VerticalPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="VerticalPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+size = 17.95

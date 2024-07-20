@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dir4ab62wc5a0"]
+
+[ext_resource type="PackedScene" uid="uid://dghro7pnvdx3y" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/river-intersectionG.glb" id="1_lgee8"]
+
+[node name="RiverIntersectionG" instance=ExtResource("1_lgee8")]

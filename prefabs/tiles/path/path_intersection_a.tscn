@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx2hbwd7f8evf"]
+
+[ext_resource type="PackedScene" uid="uid://cru3xdnu1183m" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/path-intersectionA.glb" id="1_qxuex"]
+
+[node name="PathIntersectionA" instance=ExtResource("1_qxuex")]

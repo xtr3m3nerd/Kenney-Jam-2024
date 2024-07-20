@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyool6vhe733t"]
+
+[ext_resource type="PackedScene" uid="uid://bi6ur8mr7tuyt" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/river-corner-sharp.glb" id="1_frhvv"]
+
+[node name="RiverCornerSharp" instance=ExtResource("1_frhvv")]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://boils306x8ttn"]
+
+[ext_resource type="PackedScene" uid="uid://bfd4b7t4bj5w" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/water-island.glb" id="1_bplm7"]
+
+[node name="WaterIsland" instance=ExtResource("1_bplm7")]

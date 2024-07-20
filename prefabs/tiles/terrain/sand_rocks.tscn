@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlpjvrarq772d"]
+
+[ext_resource type="PackedScene" uid="uid://dbispms58mlr5" path="res://assets/models/kenney_hexagon-kit/Models/GLB format/sand-rocks.glb" id="1_2td0e"]
+
+[node name="SandRocks" instance=ExtResource("1_2td0e")]
