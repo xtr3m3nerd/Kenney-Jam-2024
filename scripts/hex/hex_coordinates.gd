@@ -1,6 +1,7 @@
 extends Object
 class_name Hex
 
+# https://www.redblobgames.com/grids/hexagons/
 var q: int
 var r: int
 
