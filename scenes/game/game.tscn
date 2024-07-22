@@ -1,7 +1,95 @@
-[gd_scene load_steps=6 format=3 uid="uid://camiyo4jsu8l1"]
+[gd_scene load_steps=11 format=3 uid="uid://camiyo4jsu8l1"]
 
 [ext_resource type="PackedScene" uid="uid://def78aiuwodq0" path="res://prefabs/game_map.tscn" id="1_mdqum"]
+[ext_resource type="PackedScene" uid="uid://cmryvpa664rnk" path="res://prefabs/resource_manager.tscn" id="1_vlelr"]
 [ext_resource type="PackedScene" uid="uid://25lllfo6dlij" path="res://prefabs/camera_rig.tscn" id="2_j4io6"]
+[ext_resource type="PackedScene" uid="uid://c5s8v0mt0m1bs" path="res://prefabs/gold_tracker.tscn" id="4_4j438"]
+
+[sub_resource type="Animation" id="Animation_imea6"]
+resource_name = "idle"
+length = 360.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 360),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, 2.61799, 0), Vector3(5.23599, 2.61799, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 43.2, 255.6, 360),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.629675, 0.629675, 0.629675, 1), Color(0.629675, 0.629675, 0.629675, 1), Color(0.629675, 0.629675, 0.629675, 1), Color(0.629675, 0.629675, 0.629675, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:light_energy")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 14.4, 61.2, 244.8, 295.2, 360),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0, 0.0, 1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ccrgd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.0472, 2.61799, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.629675, 0.629675, 0.629675, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rbyna"]
+_data = {
+"RESET": SubResource("Animation_ccrgd"),
+"idle": SubResource("Animation_imea6")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sopav"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,10 +107,18 @@ reflected_light_source = 1
 
 [node name="Game" type="Node"]
 
+[node name="ResourceManager" parent="." groups=["resource_manager"] instance=ExtResource("1_vlelr")]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 light_color = Color(0.629675, 0.629675, 0.629675, 1)
 shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DirectionalLight3D"]
+libraries = {
+"": SubResource("AnimationLibrary_rbyna")
+}
+autoplay = "idle"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gwe7w")
@@ -30,3 +126,7 @@ environment = SubResource("Environment_gwe7w")
 [node name="GameMap" parent="." instance=ExtResource("1_mdqum")]
 
 [node name="CameraRig" parent="." instance=ExtResource("2_j4io6")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GoldTracker" parent="CanvasLayer" instance=ExtResource("4_4j438")]

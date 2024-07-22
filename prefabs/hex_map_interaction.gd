@@ -24,7 +24,6 @@ func handle_mouse_motion(_event: InputEventMouseMotion) -> void:
 func handle_mouse_click(_event: InputEventMouseButton) -> void:
 	var mouse_coords = get_mouse_hex_coordinates()
 	if mouse_coords:
-		print(mouse_coords.nearest_neighbor)
 		place_road.emit(mouse_coords)
 
 func get_mouse_hex_coordinates() -> MouseHexCoordinates:

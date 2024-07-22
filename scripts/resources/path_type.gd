@@ -3,7 +3,7 @@ class_name PathType
 
 @export var prefab: PackedScene
 
-enum directions {
+enum Directions {
 	Right,
 	TopRight,
 	TopLeft,
@@ -15,12 +15,20 @@ enum directions {
 var connections: int:
 	set(value):
 		connections = value
-		num_of_connections = count_set_bits(value)
+		num_of_connections = PathType.count_set_bits(value)
 var num_of_connections: int
 
-func _init(_prefab: PackedScene = null, _connections: int = 0):
+enum BuildingNeighborRules {
+	NONE,
+	ONE,
+	MULTIPLE,
+}
+@export var next_to_buildings: BuildingNeighborRules
+
+func _init(_prefab: PackedScene = null, _connections: int = 0, _next_to_buildings: BuildingNeighborRules = BuildingNeighborRules.NONE):
 	prefab = _prefab
 	connections = _connections
+	next_to_buildings = _next_to_buildings
 
 static func count_set_bits(n: int) -> int:
 	var count = 0

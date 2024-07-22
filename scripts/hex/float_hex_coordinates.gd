@@ -45,10 +45,10 @@ func hex_round() -> Hex:
 	return to_float_cube().cube_round().to_hex()
 
 func normalize() -> FloatHex:
-	var length = length()
-	if length == 0:
+	var p_length = length()
+	if p_length == 0:
 		return FloatHex.new(0, 0)
-	return FloatHex.new(q / length, r / length)
+	return FloatHex.new(q / p_length, r / p_length)
 
 func _to_string() -> String:
 	return "FloatHex(q: %.2f, r: %.2f)" % [q, r]

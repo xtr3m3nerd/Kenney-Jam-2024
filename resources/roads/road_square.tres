@@ -7,3 +7,4 @@
 script = ExtResource("2_jrxne")
 prefab = ExtResource("1_oybox")
 connections = 9
+next_to_buildings = 2

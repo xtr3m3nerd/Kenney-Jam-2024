@@ -7,3 +7,4 @@
 script = ExtResource("2_dfhx4")
 prefab = ExtResource("1_abgy8")
 connections = 8
+next_to_buildings = 2

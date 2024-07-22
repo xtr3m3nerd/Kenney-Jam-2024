@@ -64,10 +64,10 @@ func cube_round() -> Cube:
 	return Cube.new(pq, pr, ps)
 
 func normalize() -> FloatCube:
-	var length = length()
-	if length == 0:
+	var p_length = length()
+	if p_length == 0:
 		return FloatCube.new(0, 0, 0)
-	return FloatCube.new(q / length, r / length, s / length)
+	return FloatCube.new(q / p_length, r / p_length, s / p_length)
 
 func _to_string() -> String:
 	return "Cube(q: %.2f, r: %.2f, s: %.2f)" % [q, r, s]

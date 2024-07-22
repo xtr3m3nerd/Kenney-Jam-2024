@@ -7,6 +7,8 @@ var connection_lookup: Dictionary = {}
 var road_network: HexGraph
 var roads: Dictionary = {}
 
+@onready var resource_manager: ResourceManager = get_tree().get_first_node_in_group("resource_manager")
+
 func _ready():
 	connection_lookup = build_connection_lookup(road_tiles)
 	road_network = HexGraph.new()
@@ -27,7 +29,9 @@ func place_road(mouse_coords: MouseHexCoordinates, map_data: Dictionary):
 	
 	if not tile:
 		return
-	if not can_place_road(tile["type"]):
+	if not Terrain.can_place_road(tile["type"]):
+		return
+	if not resource_manager.can_afford_road(tile["type"]):
 		return
 	
 	var redraw_list: Array[Cube] = []
@@ -55,13 +59,15 @@ func place_road(mouse_coords: MouseHexCoordinates, map_data: Dictionary):
 			road_network.add_node(mouse_coords.tile)
 		redraw_list.append(mouse_coords.tile)
 	
+	if not resource_manager.build_road(tile["type"]):
+		printerr("Opps couldnt charge you for road for some reason... must be free")
 	redraw_tiles(redraw_list, map_data, mouse_coords)
 
 func redraw_tiles(redraw_list: Array[Cube], map_data: Dictionary, mouse_coords: MouseHexCoordinates):
 	for tile in redraw_list:
 		var point = GameSettings.hex_grid.cube_to_point(tile)
 		var tile_data = map_data.get(tile.to_vector3i(), null)
-		var spawn_point = Vector3(point.x, get_road_height(tile_data["type"]), point.y)
+		var spawn_point = Vector3(point.x, Terrain.get_road_height(tile_data["type"]), point.y)
 		
 		if not tile:
 			return
@@ -96,41 +102,40 @@ func get_neighbor_flags(hex_node: HexGraph.HexNode) -> int:
 	return flags
 
 func pick_road(neighbor_flags: int, mouse_coords: MouseHexCoordinates) -> PathOrientation:
-	print(neighbor_flags)
 	var num_connections = PathType.count_set_bits(neighbor_flags)
 	var path_types = connection_lookup.get(num_connections, [])
 	if path_types.is_empty():
 		printerr("No paths have %d connections")
 		return null
+	# TODO - write function to check for neighboring buildings
+	var num_building_neighbors = 0
+	
+	if num_building_neighbors == 0:
+		var paths_with_none_rule = path_types.filter(func(path_type): return path_type.next_to_buildings == PathType.BuildingNeighborRules.NONE)
+		if not paths_with_none_rule.is_empty():
+			path_types = paths_with_none_rule
+	elif num_building_neighbors == 1:
+		var paths_with_one_rule = path_types.filter(func(path_type): return path_type.next_to_buildings == PathType.BuildingNeighborRules.ONE)
+		if not paths_with_one_rule.is_empty():
+			path_types = paths_with_one_rule
+	else:
+		var paths_with_multiple_rule = path_types.filter(func(path_type): return path_type.next_to_buildings == PathType.BuildingNeighborRules.MULTIPLE)
+		if not paths_with_multiple_rule.is_empty():
+			path_types = paths_with_multiple_rule
+	
 	if num_connections == 0:
 		return PathOrientation.new(path_types[0], mouse_coords.nearest_neighbor_dir)
 	for path_type in path_types:
+		if num_building_neighbors == 0 and not path_type.next_to_buildings == PathType.BuildingNeighborRules.NONE:
+			continue
+		if num_building_neighbors == 1 and not path_type.next_to_buildings == PathType.BuildingNeighborRules.ONE:
+			continue
 		for i in range(6):
 			if neighbor_flags == PathType.circular_left_shift(path_type.connections, i, 6):
 				return PathOrientation.new(path_type,i)
 	printerr("Unable to find connection with following flags %X" % neighbor_flags)
 	return null
 
-func can_place_road(tile_type: int) -> bool:
-	# TODO add to Terrain Definition file
-	return tile_type not in [
-		Terrain.Types.UNDECLARED,
-		Terrain.Types.HIGH_MOUNTAINS,
-		Terrain.Types.MOUNTAINS,
-		Terrain.Types.FORESTS,
-		Terrain.Types.WATER,
-		Terrain.Types.DEEPWATER
-	]
-
-func get_road_height(tile_type: int) -> float:
-	# TODO add to Terrain Definition file
-	match tile_type:
-		Terrain.Types.PLANES, Terrain.Types.DESERT:
-			return 0.2
-		Terrain.Types.DIRT:
-			return 0.1
-		_:
-			return 0.0
 
 func get_roads() -> Dictionary:
 	return roads
